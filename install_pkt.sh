@@ -20,6 +20,12 @@ mkdir ~/.prove
 # Create ~/.fonts/
 mkdir ~/.fonts
 
+# Create ~/.git-clone/
+mkdir ~/.git-clone
+
+# Add repository
+sudo add-apt-repository ppa:ytvwld/asciiquarium
+
 # Update
 echo -e "[*] Eseguo l'update\n"
 sudo $update_cmd
@@ -46,14 +52,25 @@ sudo $install_cmd python3-pip
 sudo $install_cmd python3-dev
 sudo $install_cmd rofi
 sudo $install_cmd polybar
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# Update 
+echo -e "[*] Eseguo l'update\n"
+sudo $update_cmd
 
 # Extra Software
 sudo $install_cmd htop 
 sudo $install_cmd tty-clock 
-sudo $install_cmd bpytop
+# sudo $install_cmd bpytop
+python3 -m pip install psutil
+git clone https://github.com/aristocratos/bpytop.git ~/.git-clone/
+(cd ~/.git-clone/bpytop; sudo make install)
+sudo $install_cmd libcurses-perl
 sudo $install_cmd asciiquarium
 sudo $install_cmd sl
-sudo $install_cmd broot 	# broot --sizes
+# sudo $install_cmd broot 	# broot --sizes
+git clone https://github.com/Canop/broot.git ~/.git-clone/
+(cd ~/.git-clone/broot; cargo install --path .)
 sudo $install_cmd ranger
 sudo $install_cmd cmatrix
 sudo $install_cmd lolcat
