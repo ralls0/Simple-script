@@ -2,9 +2,10 @@
 
 PPWD=$PWD
 LPWD=$PWD
-if [ $# -eq 1 ]
+if [ $# -eq 2 ]
 then
   LPWD=$1
+  PPWD=$2
 fi
 
 FILES="$(echo "LPWD" | ls)"
@@ -28,6 +29,6 @@ do
     fi
   else
     echo "[i] $entry is a directory. Starting to process its file..."
-    (cd ./$entry; "$PPWD"/$0 "$LPWD/$entry")
+    (cd ./$entry; "$PPWD"/cpp-prettier "$LPWD/$entry" "$PPWD")
   fi
 done
