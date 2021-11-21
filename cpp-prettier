@@ -28,6 +28,6 @@ do
     fi
   else
     echo "[i] $entry is a directory. Starting to process its file..."
-    (cd ./$entry; "$PPWD"/$0 "$LPWD")
+    (cd ./$entry; "$PPWD"/$0 "$LPWD/$entry")
   fi
 done
