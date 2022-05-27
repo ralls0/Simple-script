@@ -1,7 +1,15 @@
 import geocoder
 import folium
- 
-g = geocoder.ip("me")
+
+g = ""
+
+resp = input("Vuoi inserire un ip? [y/n]")
+if resp == "y":
+  nip = input("Inserisci l'ip: ")
+  g = geocoder.ip(nip)
+else:
+  g = geocoder.ip("me")
+
 
 myAddress = g.latlng
 
