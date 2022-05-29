@@ -4,6 +4,13 @@ echo "[i] Replacing vimrc file..."
 mkdir $HOME/.tmp
 echo "$(curl -fsSL https://raw.githubusercontent.com/Ralls0/dotfiles/main/.vimrc)" > $HOME/.vimrc
 
+echo "[i] Downloading fonts"
+mkdir -p $HOME/.fonts
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf > $HOME/.fonts
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf > $HOME/.fonts
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf > $HOME/.fonts
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf > $HOME/.fonts
+
 # ZSH
 if ! command -v zsh &> /dev/null
 then
