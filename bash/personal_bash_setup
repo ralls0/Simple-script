@@ -19,16 +19,16 @@ then
 fi
 
 # ZSH PLUGINS
-if ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+if ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 then
   echo "[i] Adding zsh-autosuggestions plugin..."
-  git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 fi 
 
-if ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+if ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 then  
   echo "[i] Adding zsh-syntax-highlighting plugin..."
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi 
 
 # OH-MY-ZSH THEME
