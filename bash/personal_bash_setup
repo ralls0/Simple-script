@@ -6,10 +6,10 @@ echo "$(curl -fsSL https://raw.githubusercontent.com/Ralls0/dotfiles/main/.vimrc
 
 echo "[i] Downloading fonts"
 mkdir -p $HOME/.fonts
-curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf > $HOME/.fonts
-curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf > $HOME/.fonts
-curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf > $HOME/.fonts
-curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf > $HOME/.fonts
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf > $HOME/.fonts/MesloLGS_NF_Regular.ttf
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf > $HOME/.fonts/MesloLGS_NF_Bold.ttf
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf > $HOME/.fonts/MesloLGS%20NF%20Italic.ttf
+curl https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf > $HOME/.fonts/MesloLGS_NF_Bold_Italic.ttf
 
 # ZSH
 if ! command -v zsh &> /dev/null
