@@ -6,7 +6,8 @@ def handleCelsiusFile(fileList: list):
     fileList.remove(headerFile)
     celsiusCoins = getCelsiusTransaction(fileList, headerFile)
     print(json.dumps(celsiusCoins, indent=2),
-          json.dumps(utils.getAmmount(celsiusCoins, "5/3/2021"), indent=2))
+          json.dumps(utils.getAmmount(celsiusCoins), indent=2),
+          json.dumps(utils.getCoinAmmount(celsiusCoins), indent=2))
 
 def getCelsiusTransaction(fileList: list, headerFile: list):
     transactions = {}

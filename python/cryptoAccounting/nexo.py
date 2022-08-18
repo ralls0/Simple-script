@@ -6,7 +6,8 @@ def handleNexoFile(fileList: list):
     fileList.remove(headerFile)
     nexoCoins = getNexoTransaction(fileList, headerFile)
     print(json.dumps(nexoCoins, indent=2),
-          json.dumps(utils.getAmmount(nexoCoins), indent=2))
+          json.dumps(utils.getAmmount(nexoCoins), indent=2),
+          json.dumps(utils.getCoinAmmount(nexoCoins), indent=2))
 
 def getNexoTransaction(fileList: list, headerFile: list):
     transactions = {}

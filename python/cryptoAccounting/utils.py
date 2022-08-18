@@ -34,13 +34,17 @@ def getDate(dateString: str, platform: str):
         dateRow = [re.sub('[^A-Za-z0-9]+', '', x)
                    for x in dateString.split(" ")]
         result = f"{dateRow[1]}/{MONTH[dateRow[0]]}/{dateRow[2]}"
-        
+
     if platform == 'binance':
         dateRow = (dateString.split(" "))[0].split('-')
         result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
     
     if platform == 'nexo':
         dateRow = (dateString.split(" "))[0].split('-')
+        result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
+    
+    if platform == 'coinbase':
+        dateRow = (dateString.split("T"))[0].split('-')
         result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
 
     return result
