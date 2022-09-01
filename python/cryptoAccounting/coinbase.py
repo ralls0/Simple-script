@@ -1,14 +1,12 @@
 import utils
 import json
 
-import utils
-import json
 
 def handleCoinbaseFile(fileList: list):
     headerFile = fileList[0]
     fileList.remove(headerFile)
     coinbaseCoins = getCoinbaseTransaction(fileList, headerFile)
-    print(json.dumps(coinbaseCoins, indent=2),
+    print("#### Coinbase ####", json.dumps(coinbaseCoins, indent=2),
           json.dumps(utils.getAmmount(coinbaseCoins), indent=2),
           json.dumps(utils.getCoinAmmount(coinbaseCoins), indent=2))
 
@@ -62,9 +60,15 @@ def getCoinbaseTransaction(fileList: list, headerFile: list):
             transactions[dateRow]['USD'] = transactions[dateRow].get(
                 'USD', 0.0) + float(row[usdValueListNum])
 
+        if row[transactionTypeListNum] == 'Buy':
+            transactions[dateRow][row[coinTypeListNum]] = transactions[dateRow].get(
+                row[coinTypeListNum], 0.0) + float(row[coinAmmountListNum])
+            transactions[dateRow]['USD'] = transactions[dateRow].get(
+                'USD', 0.0) - float(row[usdValueListNum])
+
         if row[transactionTypeListNum] == 'Coinbase Earn':
-            transactions[dateRow]['ammount'] = transactions[dateRow].get(
-                'ammount', 0.0) + float(row[usdValueListNum])
+            # transactions[dateRow]['ammount'] = transactions[dateRow].get(
+            #     'ammount', 0.0) + float(row[usdValueListNum])
             transactions[dateRow][row[coinTypeListNum]] = transactions[dateRow].get(
                 row[coinTypeListNum], 0.0) + float(row[coinAmmountListNum])
 

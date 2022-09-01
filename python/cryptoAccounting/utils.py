@@ -19,6 +19,21 @@ MONTH = {'January': 1,
          'December': 12
          }
 
+MON = {'Jan': 1,
+       'Feb': 2,
+       'Mar': 3,
+       'Apr': 4,
+       'May': 5,
+       'Jun': 6,
+       'Jul': 7,
+       'Aug': 8,
+       'Sep': 9,
+       'Oct': 10,
+       'Nov': 11,
+       'Dec': 12
+       }
+
+
 def openFile(filePath: str):
     fileList = []
     with open(filePath, newline='') as csvfile:
@@ -35,17 +50,17 @@ def getDate(dateString: str, platform: str):
                    for x in dateString.split(" ")]
         result = f"{dateRow[1]}/{MONTH[dateRow[0]]}/{dateRow[2]}"
 
-    if platform == 'binance':
+    if platform == 'binance' or platform == 'nexo' or platform == 'cryptocom':
         dateRow = (dateString.split(" "))[0].split('-')
         result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
-    
-    if platform == 'nexo':
-        dateRow = (dateString.split(" "))[0].split('-')
-        result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
-    
+
     if platform == 'coinbase':
         dateRow = (dateString.split("T"))[0].split('-')
         result = f"{dateRow[2]}/{dateRow[1]}/{dateRow[0]}"
+
+    if platform == 'uphold':
+        dateRow = dateString.split(" ")
+        result = f"{dateRow[2]}/{MON[dateRow[1]]}/{dateRow[3]}"
 
     return result
 

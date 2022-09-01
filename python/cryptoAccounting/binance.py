@@ -5,7 +5,7 @@ def handleBinanceFile(fileList: list):
     headerFile = fileList[0]
     fileList.remove(headerFile)
     binanceCoins = getBinanceTransaction(fileList, headerFile)
-    print(json.dumps(binanceCoins, indent=2),
+    print("#### Binance ####", json.dumps(binanceCoins, indent=2),
           json.dumps(utils.getCoinAmmount(binanceCoins), indent=2))
 
 def getBinanceTransaction(fileList: list, headerFile: list):
